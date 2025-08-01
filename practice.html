@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thrive with Rose - Certified Life Coach</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- EmailJS Script -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("vNnhhrow7_YuQ7q0I"); //public key
+    })();
+  </script>
+
+  <style>
+    :root {
+      --primary: #e83e8c;
+      --primary-dark: #c72c74;
+      --secondary: #f8f9fa;
+      --dark: #343a40;
+      --light: #ffffff;
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      margin: 0;
+      padding: 0;
+      background-image: url('landscape-5064988_1280.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    header {
+      background-color: var(--primary);
+      color: var(--light);
+      padding: 2rem 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    h2 {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .coach-photo {
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border: 5px solid var(--primary);
+      margin: 1rem auto;
+      display: block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+
+    .services {
+      background-color: rgba(248, 249, 250, 0.95);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .service-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .service-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .service-item:last-child {
+      border-bottom: none;
+    }
+
+    .service-item i {
+      color: var(--primary);
+      font-size: 1.2rem;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    .service-item strong {
+      color: var(--primary);
+    }
+
+    .booking {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin: 2rem 0;
+    }
+
+    form {
+      display: grid;
+      grid-gap: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.2);
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    button:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .contact-methods {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .whatsapp {
+      background-color: #25D366;
+      color: white;
+    }
+
+    .email {
+      background-color: var(--dark);
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--dark);
+      color: var(--light);
+      margin-top: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .social-links a {
+      color: var(--light);
+      font-size: 1.5rem;
+    }
+
+    #success-message {
+      display: none;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 4px;
+    }
+
+    /* New styles for the About Coaching section */
+    .about-coaching {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .about-coaching h3 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+    }
+
+    .benefit-item {
+      background-color: rgba(232, 62, 140, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .contact-methods {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .coach-photo {
+        max-width: 300px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Thrive with Rose</h1>
+      <p>CERTIFIED LIFE COACH</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <img src="1751998023588.jpg" alt="Gabisile Rose - Life Coach" class="coach-photo" />
+      <h2>Gabisile Rose</h2>
+      <p>Helping you navigate life's challenges and achieve personal growth through compassionate, professional coaching.</p>
+    </section>
+
+    <section class="services">
+      <h2>My Services</h2>
+      <ul class="service-list">
+        <li class="service-item"><i class="fas fa-user-friends"></i><div><strong>One-on-one coaching</strong> Personalized 60-minute sessions</div></li>
+        <li class="service-item"><i class="fas fa-bullseye"></i><div><strong>Personal growth</strong> and goal setting support</div></li>
+        <li class="service-item"><i class="fas fa-exchange-alt"></i><div><strong>Life transitions</strong> guidance</div></li>
+        <li class="service-item"><i class="fas fa-star"></i><div><strong>Confidence building</strong> and self-awareness tools</div></li>
+        <li class="service-item"><i class="fas fa-brain"></i><div><strong>Mindset coaching</strong> to transform limiting beliefs</div></li>
+        <li class="service-item"><i class="fas fa-heart"></i><div><strong>Safe space</strong> for authentic self-expression</div></li>
+      </ul>
+    </section>
+
+    <!-- New About Coaching Section -->
+    <section class="about-coaching">
+      <h2>About Life Coaching</h2>
+      
+      <div class="coaching-definition">
+        <h3>What is a Life Coach?</h3>
+        <p>A life coach helps you gain clarity, overcome obstacles, and create an action plan for a more balanced, fulfilled life.</p>
+      </div>
+
+      <div class="my-role">
+        <h3>My Role as Your Life Coach</h3>
+        <ul class="service-list">
+          <li class="service-item">
+            <i class="fas fa-chevron-right"></i>
+            <div>Guide and motivate you</div>
+          </li>
+          <li class="service-item">
+            <i class="fas fa-chevron-right"></i>
+            <div>Help you discover your potential</div>
+          </li>
+          <li class="service-item">
+            <i class="fas fa-chevron-right"></i>
+            <div>Keep you accountable and focused</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="benefits">
+        <h3>Why Choose Life Coaching</h3>
+        <div class="service-list">
+          <div class="benefit-item">
+            <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i>
+            Find direction and purpose
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i>
+            Build confidence and resilience
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i>
+            Move beyond feeling "stuck"
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i>
+            Turn dreams into achievable goals
+          </div>
+        </div>
+      </div>
+
+      <div class="who-benefits">
+        <h3>Who Can Benefit</h3>
+        <p style="font-style: italic; background-color: rgba(232, 62, 140, 0.1); padding: 1rem; border-radius: 8px;">
+          Anyone wanting growth in career, relationships, or personal well-being
+        </p>
+      </div>
+    </section>
+
+    <section class="booking">
+      <h2>Book a Session</h2>
+      <form id="booking-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="service">Service Interested In</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="One-on-one coaching (R250)">One-on-one coaching</option>
+            <option value="Personal growth">Personal growth and goal setting</option>
+            <option value="Life transitions">Life transitions guidance</option>
+            <option value="Confidence building">Confidence and self-awareness</option>
+            <option value="Mindset coaching">Mindset coaching</option>
+            <option value="Not sure">Not sure - would like to discuss</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="preferences">Preferred Days/Times</label>
+          <input type="text" id="preferences" name="preferences" placeholder="e.g. Weekday evenings, Saturday mornings" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Anything else you'd like me to know?</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+        <button type="submit">
+          <i class="fas fa-calendar-check"></i> Request Booking
+        </button>
+      </form>
+      <div id="success-message"></div>
+    </section>
+
+    <section class="contact">
+      <h2>Contact Me</h2>
+      <div class="contact-methods">
+        <a href="https://wa.me/27824313562" class="contact-btn whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp: 082 431 3562
+        </a>
+        <a href="mailto:thrivewithrose1@gmail.com" class="contact-btn email">
+          <i class="fas fa-envelope"></i> Email: thrivewithrose1@gmail.com
+        </a>
+      </div>
+
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Thrive with Rose. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("booking-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const form = this;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitBtn.disabled = true;
+
+      emailjs.sendForm('service_j0dsjyv', 'template_qniy45q', form)
+        .then(() => {
+          document.getElementById("success-message").style.display = "block";
+          document.getElementById("success-message").textContent =
+            "Thank you! Your booking request has been sent successfully. A confirmation email has been sent to you.";
+          form.reset();
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+
+          setTimeout(() => {
+            document.getElementById("success-message").style.display = "none";
+          }, 5000);
+        }, (error) => {
+          alert("Something went wrong. Please try again later.");
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        });
+    });
+  </script>
+</body>
+</html>
